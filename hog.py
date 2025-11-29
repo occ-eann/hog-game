@@ -392,7 +392,14 @@ def final_strategy(score, opponent_score):
     *** YOUR DESCRIPTION HERE ***
     """
     # BEGIN PROBLEM 12
-    return 6  # Remove this line once implemented.
+    max_average_score = 0
+    max_roll_nums = boar_brawl(score,opponent_score)
+    for roll_nums in range(1,11):
+        therotical_score = ((5/6)**roll_nums)*4*roll_nums + (1 - (5/6)**roll_nums)*1
+        if therotical_score > max_average_score:
+            max_average_score = therotical_score
+            max_roll_nums = roll_nums
+    return max_roll_nums
     # END PROBLEM 12
 
 
